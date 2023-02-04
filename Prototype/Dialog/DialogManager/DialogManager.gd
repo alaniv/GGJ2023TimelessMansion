@@ -11,6 +11,9 @@ var _test_dialog : Dictionary = {
 		"Esto es una prueba de NPC 2",
 		"Habrá algo más oculto?...",
 	],	
+	"TEXT_PLATFORM_BROKEN" : [
+		"Parece haberse dañado. no servirá en el futuro"
+	]
 }
 
 var _reading : bool = false
@@ -23,19 +26,12 @@ func _ready():
 	$DialogTop.visible = false
 
 func show_message(dialog_id : String):
-	PrototypeGlobals.set_deferred("pause", true)
+	get_tree().paused = true
 	_dialog_id = dialog_id
 	_current_index = 0
 	_reading = true
 	$DialogTop.visible = true
 	load_next_line()
-
-func show_message_not_blocking(text : String):
-	$DialogTop.visible = true
-	$DialogTop/RichTextLabel.text = text
-	$Timer.start(1)
-	yield($Timer, "timeout")
-	$DialogTop.visible = false
 
 func load_next_line():
 	assert(_test_dialog.has(_dialog_id), "that key doesn't exists!")
@@ -64,7 +60,7 @@ func close_dialog():
 	_reading = false
 	_awaiting = false
 	$DialogTop.visible = false
-	PrototypeGlobals.set_deferred("pause", false)
+	get_tree().paused = false
 	emit_signal("dialog_ended")
 
 

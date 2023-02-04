@@ -9,10 +9,6 @@ const jumpforce = -400
 var double_jumped = false
 
 func _physics_process(_delta):
-	if PrototypeGlobals.pause:
-		velocity = Vector2(0,0)
-		_animation_player.play("idle")
-		return
 	if Input.is_action_pressed("ui_right"):
 		$Sprite.set_flip_h(false)
 		_animation_player.play("walk")

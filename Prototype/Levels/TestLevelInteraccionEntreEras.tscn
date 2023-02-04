@@ -49,14 +49,15 @@ extents = Vector2( 38, 36.5 )
 [sub_resource type="GDScript" id=11]
 script/source = "extends KinematicBody2D
 
-onready var dialog = get_node(\"/root/TestObjetosEntreEras/DialogManager\")
+#precondition
+onready var dialogManager = get_node(\"/root/TestObjetosEntreEras/DialogManager\")
 
 func _process(_delta):
 	if $RayCast2D.is_colliding():
 		$RayCast2D.enabled = false
 		$\"../..\".status_dict['used'] = true
-		dialog.call_deferred(\"show_message_not_blocking\", \"parece haberse dañado. no servirá en el futuro\") 
-		yield(dialog, \"dialog_ended\")
+		dialogManager.call_deferred(\"show_message\", \"TEXT_PLATFORM_BROKEN\") 
+		yield(dialogManager, \"dialog_ended\")
 "
 
 [sub_resource type="RectangleShape2D" id=8]
@@ -322,5 +323,13 @@ position = Vector2( 105, 537 )
 scale = Vector2( 2, 2 )
 
 [node name="DialogManager" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
 
 [connection signal="body_shape_entered" from="ErasCommonDynamics/CosoQueRota/Era_1/Area2D" to="ErasCommonDynamics/CosoQueRota/Era_1" method="_on_Area2D_body_shape_entered"]
