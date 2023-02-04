@@ -19,5 +19,4 @@ func is_free() -> bool:
 	
 func plant_seed():
 	_is_free = false
-	print_debug("me plantaron una semilla.")
 	emit_signal("seed_planted")
