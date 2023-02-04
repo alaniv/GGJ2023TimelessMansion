@@ -29,11 +29,11 @@ position = Vector2( 225.25, 409 )
 shape = SubResource( 1 )
 
 [node name="TestNPC" parent="." instance=ExtResource( 3 )]
-message = "Yo estoy a la izquierda"
+message = "TEXT_TEST_NPC_1"
 
 [node name="TestNPC2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 62, 535 )
-message = "Yo estoy a la derecha"
+message = "TEXT_TEST_NPC_2"
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
 position = Vector2( 407, 533 )
@@ -44,3 +44,6 @@ margin_left = 0.0
 margin_top = 0.0
 margin_right = 1027.0
 margin_bottom = 601.0
+__meta__ = {
+"_edit_group_": true
+}
