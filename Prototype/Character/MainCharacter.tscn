@@ -60,11 +60,11 @@ script/source = "extends KinematicBody2D
 var _climb_allowed = false
 
 func allow_climbing():
-	print_debug(\"allow_climbing\")
+	#print_debug(\"allow_climbing\")
 	_climb_allowed = true
 	
 func disallow_climbing():
-	print_debug(\"disallow_climbing\")
+	#print_debug(\"disallow_climbing\")
 	_climb_allowed = false
 
 func is_climb_allowed() -> bool :
@@ -72,7 +72,7 @@ func is_climb_allowed() -> bool :
 "
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 5, 13 )
+extents = Vector2( 7, 13 )
 
 [node name="Node2D" type="KinematicBody2D" groups=["MainCharacter"]]
 script = ExtResource( 2 )
