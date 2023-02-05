@@ -1,23 +1,65 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Prototype/Levels/Resources/Backgrounds/Background_alt_2.png" type="Texture" id=1]
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/Background_alt_3.png" type="Texture" id=2]
 [ext_resource path="res://Prototype/FedeCharacter/MainCharacter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prototype/Levels/Resources/Backgrounds/Background_alt.png" type="Texture" id=4]
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/fondo y personaje.png" type="Texture" id=5]
 [ext_resource path="res://Prototype/ErasManagement/ErasManager/ErasManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prototype/ErasManagement/Portal/Portal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prototype/Levels/LevelObjects/DamagingObjects/SpikeFloor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prototype/Levels/LevelObjects/DamagingObjects/SpikeBall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prototype/Levels/Resources/onePixel.png" type="Texture" id=10]
+[ext_resource path="res://Prototype/SeedManagement/SeedableZone.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prototype/SeedManagement/vines.jpg" type="Texture" id=12]
+[ext_resource path="res://Prototype/Levels/Resources/seed.png" type="Texture" id=13]
+[ext_resource path="res://Prototype/SeedManagement/soil.jpg" type="Texture" id=14]
+[ext_resource path="res://Prototype/ErasManagement/EraCommonDynamic.gd" type="Script" id=15]
+[ext_resource path="res://Prototype/SeedManagement/ClimbableArea.gd" type="Script" id=16]
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends Node2D
+
+onready var dict : Dictionary = $\"..\".status_dict
+
+func _process(_delta):
+	var allow_interaction = dict.has(\"seed_planted\") and dict[\"seed_planted\"]
+	$SpriteEnredadera.visible = allow_interaction
+	$ClimbableArea.monitoring = allow_interaction
+"
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 10, 71 )
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Node2D
+
+
+onready var dict : Dictionary = $\"..\".status_dict
+
+func _ready():
+	$SpriteSemilla.visible = false
+
+func _on_SeedableZone_seed_planted():
+	dict[\"seed_planted\"] = true
+	$SpriteSemilla.visible = true
+"
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 78.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 151.344, 10 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 115.688, 10 )
+extents = Vector2( 225.922, 11 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 160, 14 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 312.5, 14 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 125, 11 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 90, 11 )
+extents = Vector2( 102, 11 )
 
 [node name="TestLevelPortales" type="Node2D"]
 
@@ -27,28 +69,36 @@ extents = Vector2( 90, 11 )
 
 [node name="Era_0" type="Node2D" parent="Eras"]
 
-[node name="Background" type="Sprite" parent="Eras/Era_0"]
-scale = Vector2( 0.6, 0.6 )
+[node name="FondoYPersonaje" type="Sprite" parent="Eras/Era_0"]
+modulate = Color( 0.054902, 0.0470588, 0.0470588, 1 )
+position = Vector2( 963, 546 )
 texture = ExtResource( 5 )
-centered = false
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Portal" parent="Eras/Era_0" instance=ExtResource( 7 )]
-position = Vector2( 994, 495 )
-destination_era = 1
+[node name="PortalAEra3" parent="Eras/Era_0" instance=ExtResource( 7 )]
+position = Vector2( 216, 697 )
+destination_era = 2
 destination_position = Vector2( 356, 501 )
 
-[node name="Era_1" type="Node2D" parent="Eras"]
+[node name="PortalAEra2" parent="Eras/Era_0" instance=ExtResource( 7 )]
+position = Vector2( 1782, 695 )
+destination_era = 2
+destination_position = Vector2( 356, 501 )
 
-[node name="Background" type="Sprite" parent="Eras/Era_1"]
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 4 )
-centered = false
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="SpikeBall" parent="Eras/Era_0" instance=ExtResource( 9 )]
+position = Vector2( 641, 513 )
+scale = Vector2( 2.58744, 2.58744 )
+
+[node name="SpikeBall2" parent="Eras/Era_0" instance=ExtResource( 9 )]
+position = Vector2( 442, 130 )
+
+[node name="SpikeBall3" parent="Eras/Era_0" instance=ExtResource( 9 )]
+position = Vector2( 644, 266 )
+
+[node name="Era_1" type="Node2D" parent="Eras"]
+visible = false
 
 [node name="Portal2" parent="Eras/Era_1" instance=ExtResource( 7 )]
 position = Vector2( 271, 493 )
@@ -60,21 +110,24 @@ origin_era = 1
 destination_era = 2
 
 [node name="Era_2" type="Node2D" parent="Eras"]
+visible = false
 
-[node name="Background" type="Sprite" parent="Eras/Era_2"]
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 1 )
-centered = false
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="FondoYPersonaje" type="Sprite" parent="Eras/Era_2"]
+modulate = Color( 0.0901961, 0.192157, 0.733333, 1 )
+position = Vector2( 960, 543 )
+texture = ExtResource( 5 )
 
 [node name="Portal3" parent="Eras/Era_2" instance=ExtResource( 7 )]
-position = Vector2( 884, 500 )
+position = Vector2( 193, 703 )
 origin_era = 2
-destination_era = 3
+
+[node name="Portal4" parent="Eras/Era_2" instance=ExtResource( 7 )]
+position = Vector2( 1720, 701 )
+origin_era = 2
+destination_era = 1
 
 [node name="Era_3" type="Node2D" parent="Eras"]
+visible = false
 
 [node name="Background" type="Sprite" parent="Eras/Era_3"]
 scale = Vector2( 0.6, 0.6 )
@@ -91,46 +144,131 @@ destination_era = 1
 
 [node name="ErasCommonDynamics" type="Node2D" parent="." groups=["ErasCommonDynamics"]]
 
+[node name="SeedableZoneVines" type="Node2D" parent="ErasCommonDynamics"]
+script = ExtResource( 15 )
+
+[node name="Era_0" type="Node2D" parent="ErasCommonDynamics/SeedableZoneVines"]
+script = SubResource( 9 )
+
+[node name="ClimbableArea" type="Area2D" parent="ErasCommonDynamics/SeedableZoneVines/Era_0"]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea"]
+position = Vector2( 632, 589 )
+shape = SubResource( 10 )
+
+[node name="SpriteEnredadera" type="Sprite" parent="ErasCommonDynamics/SeedableZoneVines/Era_0"]
+position = Vector2( 635, 597 )
+scale = Vector2( 0.255556, 1.57317 )
+texture = ExtResource( 12 )
+
+[node name="Era_1" type="Node2D" parent="ErasCommonDynamics/SeedableZoneVines"]
+script = SubResource( 7 )
+
+[node name="SpriteSemilla" type="Sprite" parent="ErasCommonDynamics/SeedableZoneVines/Era_1"]
+position = Vector2( 635, 604 )
+rotation = 1.1781
+scale = Vector2( 0.0689634, 0.0802821 )
+texture = ExtResource( 13 )
+
+[node name="ClimbableArea2" type="Area2D" parent="ErasCommonDynamics/SeedableZoneVines/Era_1"]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ErasCommonDynamics/SeedableZoneVines/Era_1/ClimbableArea2"]
+position = Vector2( 632, 589 )
+shape = SubResource( 10 )
+
+[node name="Era_2" type="Node2D" parent="ErasCommonDynamics/SeedableZoneVines"]
+
+[node name="SeedableZone" parent="ErasCommonDynamics/SeedableZoneVines/Era_2" instance=ExtResource( 11 )]
+position = Vector2( 169, 444 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ErasCommonDynamics/SeedableZoneVines/Era_2/SeedableZone"]
+position = Vector2( 466, 140 )
+shape = SubResource( 8 )
+
+[node name="SpriteTierra" type="Sprite" parent="ErasCommonDynamics/SeedableZoneVines/Era_2"]
+position = Vector2( 635, 586 )
+scale = Vector2( 0.344828, 2.76364 )
+texture = ExtResource( 14 )
+
+[node name="Era_3" type="Node2D" parent="ErasCommonDynamics/SeedableZoneVines"]
+
 [node name="ErasCommonStatics" type="Node2D" parent="."]
 
 [node name="Plataforma" type="StaticBody2D" parent="ErasCommonStatics"]
-position = Vector2( 294, 179 )
+position = Vector2( 294, 201 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ErasCommonStatics/Plataforma" groups=["Area_0_CollisionShape"]]
-position = Vector2( -175, 392 )
-shape = SubResource( 1 )
+position = Vector2( -129, 725 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="ErasCommonStatics/Plataforma/CollisionShape2D"]
+position = Vector2( 0.874992, -4 )
+scale = Vector2( 302.25, 11.5 )
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="ErasCommonStatics/Plataforma" groups=["Area_0_CollisionShape"]]
-position = Vector2( 237.313, 391 )
+position = Vector2( 534.922, 727 )
 shape = SubResource( 1 )
 
+[node name="Sprite2" type="Sprite" parent="ErasCommonStatics/Plataforma/CollisionShape2D3"]
+position = Vector2( 0.0779672, -8 )
+scale = Vector2( 452, 11.5 )
+texture = ExtResource( 10 )
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ErasCommonStatics/Plataforma" groups=["Area_0_CollisionShape"]]
-position = Vector2( 695, 393 )
-shape = SubResource( 2 )
+position = Vector2( 1303, 724 )
+shape = SubResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="ErasCommonStatics/Plataforma/CollisionShape2D2"]
+position = Vector2( -4.49991, -7 )
+scale = Vector2( 617, 11.5 )
+texture = ExtResource( 10 )
 
 [node name="SpikeFloor" parent="ErasCommonStatics" instance=ExtResource( 8 )]
-position = Vector2( 490, 600 )
+position = Vector2( 490, 624 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ErasCommonStatics/SpikeFloor"]
-position = Vector2( -167, -29 )
-shape = SubResource( 3 )
+position = Vector2( -30, 315 )
+shape = SubResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="ErasCommonStatics/SpikeFloor/CollisionShape2D"]
+modulate = Color( 0.886275, 0.788235, 0.141176, 1 )
+position = Vector2( -3, -7 )
+scale = Vector2( 257.5, 16.7499 )
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ErasCommonStatics/SpikeFloor"]
-position = Vector2( 248, -29 )
+position = Vector2( 675, 315 )
 shape = SubResource( 3 )
 
-[node name="SpikeBall" parent="ErasCommonStatics" instance=ExtResource( 9 )]
-position = Vector2( 440, 396 )
-
-[node name="SpikeBall2" parent="ErasCommonStatics" instance=ExtResource( 9 )]
-position = Vector2( 442, 130 )
-
-[node name="SpikeBall3" parent="ErasCommonStatics" instance=ExtResource( 9 )]
-position = Vector2( 644, 266 )
+[node name="Sprite5" type="Sprite" parent="ErasCommonStatics/SpikeFloor/CollisionShape2D2"]
+modulate = Color( 0.886275, 0.788235, 0.141176, 1 )
+position = Vector2( 5.62498, -6 )
+scale = Vector2( 202.75, 16.7499 )
+texture = ExtResource( 10 )
 
 [node name="PJ" parent="ErasCommonStatics" instance=ExtResource( 3 )]
-position = Vector2( 57, 517 )
-scale = Vector2( 0.731628, 0.760002 )
+position = Vector2( 113, 656 )
+
+[node name="OnePixel" type="Sprite" parent="ErasCommonStatics"]
+position = Vector2( 639, 509 )
+scale = Vector2( -33.0724, 156.016 )
+texture = ExtResource( 10 )
+
+[connection signal="body_shape_entered" from="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" to="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" method="_on_ClimbableArea_body_shape_entered"]
+[connection signal="body_shape_exited" from="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" to="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" method="_on_ClimbableArea_body_shape_exited"]
+[connection signal="body_shape_entered" from="ErasCommonDynamics/SeedableZoneVines/Era_1/ClimbableArea2" to="ErasCommonDynamics/SeedableZoneVines/Era_1/ClimbableArea2" method="_on_ClimbableArea_body_shape_entered"]
+[connection signal="body_shape_exited" from="ErasCommonDynamics/SeedableZoneVines/Era_1/ClimbableArea2" to="ErasCommonDynamics/SeedableZoneVines/Era_1/ClimbableArea2" method="_on_ClimbableArea_body_shape_exited"]
+[connection signal="seed_planted" from="ErasCommonDynamics/SeedableZoneVines/Era_2/SeedableZone" to="ErasCommonDynamics/SeedableZoneVines/Era_1" method="_on_SeedableZone_seed_planted"]
