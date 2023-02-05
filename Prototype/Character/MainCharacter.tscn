@@ -127,6 +127,7 @@ func is_climb_allowed() -> bool :
 extents = Vector2( 7, 13 )
 
 [node name="Node2D" type="KinematicBody2D" groups=["MainCharacter"]]
+collision_mask = 513
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

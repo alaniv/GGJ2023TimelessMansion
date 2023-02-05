@@ -3,10 +3,10 @@ extends KinematicBody2D
 onready var _animation_player = $AnimationPlayer
 
 var velocity = Vector2(0,0)
-const walk_speed = 36
+const walk_speed = 72
 const climb_speed = 36
 const gravity = 15
-const jumpforce = -400
+const jumpforce = -500
 var double_jumped = false
 
 func _physics_process(_delta):
