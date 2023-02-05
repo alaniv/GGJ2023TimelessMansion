@@ -12,14 +12,16 @@ var double_jumped = false
 func _physics_process(_delta):
 	if Input.is_action_pressed("ui_right"):
 		$Sprite.set_flip_h(false)
-		_animation_player.play("walk")
 		velocity.x += walk_speed
+		if is_on_floor():
+			_animation_player.play("walk")
 	elif Input.is_action_pressed("ui_left"):
-		_animation_player.play("walk")
 		$Sprite.set_flip_h(true)
 		velocity.x -= walk_speed
-	else:
-		_animation_player.play("idle")
+		if  is_on_floor():
+			_animation_player.play("walk")
+	elif is_on_floor():
+		_animation_player.play("Idle")
 	
 	if $ClimbAllower.is_climb_allowed():
 		double_jumped = false
@@ -30,10 +32,10 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_select") and (is_on_floor() || !double_jumped):
 		double_jumped = !is_on_floor()
 		velocity.y = jumpforce
+		_animation_player.play("Jump")
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x, 0, 0.2)
 
 func muerte():
 	set_physics_process(false)
-	_animation_player.play("death")

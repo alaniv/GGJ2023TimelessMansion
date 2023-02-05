@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=2]
 
+[ext_resource path="res://Prototype/Character/MainCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/Background_alt_3.png" type="Texture" id=2]
-[ext_resource path="res://Prototype/FedeCharacter/MainCharacter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/fondo y personaje.png" type="Texture" id=5]
 [ext_resource path="res://Prototype/ErasManagement/ErasManager/ErasManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prototype/ErasManagement/Portal/Portal.tscn" type="PackedScene" id=7]
@@ -160,7 +160,7 @@ position = Vector2( 632, 589 )
 shape = SubResource( 10 )
 
 [node name="SpriteEnredadera" type="Sprite" parent="ErasCommonDynamics/SeedableZoneVines/Era_0"]
-position = Vector2( 635, 597 )
+position = Vector2( 638, 530 )
 scale = Vector2( 0.255556, 1.57317 )
 texture = ExtResource( 12 )
 
@@ -179,7 +179,7 @@ collision_mask = 256
 script = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ErasCommonDynamics/SeedableZoneVines/Era_1/ClimbableArea2"]
-position = Vector2( 632, 589 )
+position = Vector2( 635, 508 )
 shape = SubResource( 10 )
 
 [node name="Era_2" type="Node2D" parent="ErasCommonDynamics/SeedableZoneVines"]
@@ -188,12 +188,12 @@ shape = SubResource( 10 )
 position = Vector2( 169, 444 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ErasCommonDynamics/SeedableZoneVines/Era_2/SeedableZone"]
-position = Vector2( 466, 140 )
+position = Vector2( 468, 64 )
 shape = SubResource( 8 )
 
 [node name="SpriteTierra" type="Sprite" parent="ErasCommonDynamics/SeedableZoneVines/Era_2"]
-position = Vector2( 635, 586 )
-scale = Vector2( 0.344828, 2.76364 )
+position = Vector2( 639, 506 )
+scale = Vector2( 0.517241, 2.76364 )
 texture = ExtResource( 14 )
 
 [node name="Era_3" type="Node2D" parent="ErasCommonDynamics/SeedableZoneVines"]
@@ -259,13 +259,16 @@ position = Vector2( 5.62498, -6 )
 scale = Vector2( 202.75, 16.7499 )
 texture = ExtResource( 10 )
 
-[node name="PJ" parent="ErasCommonStatics" instance=ExtResource( 3 )]
-position = Vector2( 113, 656 )
-
 [node name="OnePixel" type="Sprite" parent="ErasCommonStatics"]
 position = Vector2( 639, 509 )
 scale = Vector2( -33.0724, 156.016 )
 texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Node2D" parent="ErasCommonStatics" instance=ExtResource( 1 )]
+position = Vector2( 93, 314 )
 
 [connection signal="body_shape_entered" from="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" to="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" method="_on_ClimbableArea_body_shape_entered"]
 [connection signal="body_shape_exited" from="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" to="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" method="_on_ClimbableArea_body_shape_exited"]
