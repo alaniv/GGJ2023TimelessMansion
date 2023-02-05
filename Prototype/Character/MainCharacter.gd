@@ -33,3 +33,7 @@ func _physics_process(_delta):
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x, 0, 0.2)
+
+func muerte():
+	set_physics_process(false)
+	_animation_player.play("death")

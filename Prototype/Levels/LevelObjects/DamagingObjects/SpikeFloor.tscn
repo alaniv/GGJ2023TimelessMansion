@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Area2D
+
+#built-in spike floor script
+
+func _on_SpikeFloor_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
+	assert(body.has_method(\"muerte\")) #solo el character tiene esto...
+	body.call_deferred(\"muerte\")
+	var timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = true
+	timer.start(0.5)
+	yield(timer, \"timeout\")
+	var _ret = get_tree().reload_current_scene()
+"
+
+[node name="SpikeFloor" type="Area2D"]
+script = SubResource( 2 )
+
+[connection signal="body_shape_entered" from="." to="." method="_on_SpikeFloor_body_shape_entered"]
