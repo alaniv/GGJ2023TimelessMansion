@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Prototype/Character/MainCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/Background_alt_3.png" type="Texture" id=2]
+[ext_resource path="res://Prototype/Music/1800.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/fondo y personaje.png" type="Texture" id=5]
 [ext_resource path="res://Prototype/ErasManagement/ErasManager/ErasManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prototype/ErasManagement/Portal/Portal.tscn" type="PackedScene" id=7]
@@ -269,6 +270,10 @@ __meta__ = {
 
 [node name="Node2D" parent="ErasCommonStatics" instance=ExtResource( 1 )]
 position = Vector2( 93, 314 )
+
+[node name="1800" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 
 [connection signal="body_shape_entered" from="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" to="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" method="_on_ClimbableArea_body_shape_entered"]
 [connection signal="body_shape_exited" from="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" to="ErasCommonDynamics/SeedableZoneVines/Era_0/ClimbableArea" method="_on_ClimbableArea_body_shape_exited"]

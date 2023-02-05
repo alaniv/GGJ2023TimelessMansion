@@ -17,7 +17,7 @@
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/tiles 1900.png" type="Texture" id=15]
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/tiles 1800.png" type="Texture" id=16]
 [ext_resource path="res://Prototype/Levels/Resources/Aloe_spike.png" type="Texture" id=17]
-[ext_resource path="res://Prototype/Levels/Resources/1900 y pico.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Prototype/Music/1900 y pico.ogg" type="AudioStream" id=18]
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 466, 85.25 )
