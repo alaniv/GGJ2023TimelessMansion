@@ -6,7 +6,7 @@
 script/source = "extends Control
 
 func _on_Start_pressed():
-	var _ret = get_tree().change_scene(\"res://Prototype/Levels/TestLevelObstaculosPinches.tscn\")
+	var _ret = get_tree().change_scene(\"res://Prototype/Levels/Level1.tscn\")
 
 func _on_Credits_pressed():
 	var _ret = get_tree().change_scene(\"res://Prototype/MainMenu/Credits.tscn\")
