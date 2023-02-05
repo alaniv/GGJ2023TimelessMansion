@@ -32,3 +32,4 @@ func travel(origin_era, destination_era, change_position_on_warp, destination_po
 	$Cooldown.start(0.5)
 	yield($Cooldown, "timeout")
 	_travelling = false
+	print(destination_era)

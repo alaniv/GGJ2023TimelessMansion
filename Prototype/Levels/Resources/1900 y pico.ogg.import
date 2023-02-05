@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/1900 y pico.ogg-e35c195dfe0844c94578b47227a2b13c.oggstr"
+
+[deps]
+
+source_file="res://Prototype/Levels/Resources/1900 y pico.ogg"
+dest_files=[ "res://.import/1900 y pico.ogg-e35c195dfe0844c94578b47227a2b13c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
