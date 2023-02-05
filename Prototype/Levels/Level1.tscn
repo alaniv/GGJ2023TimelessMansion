@@ -667,12 +667,6 @@ position = Vector2( 1693.45, 436 )
 position = Vector2( 18.05, 141 )
 shape = SubResource( 15 )
 
-[node name="SpriteSemilla" type="Sprite" parent="ErasCommonDynamics/SeedableZoneVines/Era_1"]
-position = Vector2( 1693.45, 436 )
-rotation = 1.1781
-scale = Vector2( 0.0689634, 0.0802821 )
-texture = ExtResource( 4 )
-
 [node name="Tiles1500" type="Sprite" parent="ErasCommonDynamics/SeedableZoneVines/Era_1"]
 position = Vector2( 1724.73, 389.75 )
 scale = Vector2( 0.517677, 0.517677 )
@@ -711,6 +705,12 @@ texture = ExtResource( 9 )
 hframes = 3
 vframes = 4
 frame = 3
+
+[node name="SpriteSemilla" type="Sprite" parent="ErasCommonDynamics/SeedableZoneVines/Era_1"]
+position = Vector2( 1693.45, 436 )
+rotation = 1.1781
+scale = Vector2( 0.0689634, 0.0802821 )
+texture = ExtResource( 4 )
 
 [node name="Era_2" type="Node2D" parent="ErasCommonDynamics/SeedableZoneVines"]
 
