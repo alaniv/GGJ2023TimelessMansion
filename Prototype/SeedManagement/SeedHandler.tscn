@@ -3,10 +3,10 @@
 [ext_resource path="res://Prototype/SeedManagement/SeedHandler.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9, 24 )
+extents = Vector2( 9, 41 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24, 9 )
+extents = Vector2( 41.5, 9 )
 
 [node name="SeedHandler" type="KinematicBody2D"]
 collision_layer = 4
@@ -15,7 +15,9 @@ script = ExtResource( 1 )
 seed_count = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 17 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 0 )
 shape = SubResource( 2 )
