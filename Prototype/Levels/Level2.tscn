@@ -129,6 +129,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Eras/Era_0/Plataforma1"]
+visible = false
 modulate = Color( 0.666667, 0.537255, 0.333333, 1 )
 scale = Vector2( 20, 64.5 )
 texture = ExtResource( 1 )
@@ -136,13 +137,19 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eras/Era_0/Plataforma1" groups=["Area_0_CollisionShape"]]
 shape = SubResource( 22 )
 
+[node name="Tiles1803" type="Sprite" parent="Eras/Era_0/Plataforma1"]
+position = Vector2( 1.43051e-06, -4.00001 )
+scale = Vector2( 0.207692, 0.686869 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
+
 [node name="Plataforma2" type="StaticBody2D" parent="Eras/Era_0"]
 position = Vector2( 1139, 442 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="Eras/Era_0/Plataforma2"]
+visible = false
 modulate = Color( 0.666667, 0.537255, 0.333333, 1 )
 scale = Vector2( 20, 64.5 )
 texture = ExtResource( 1 )
@@ -150,19 +157,33 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eras/Era_0/Plataforma2" groups=["Area_0_CollisionShape"]]
 shape = SubResource( 23 )
 
+[node name="Tiles1804" type="Sprite" parent="Eras/Era_0/Plataforma2"]
+position = Vector2( -5, -4 )
+scale = Vector2( 0.207692, 0.686869 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
+
 [node name="Plataforma3" type="StaticBody2D" parent="Eras/Era_0"]
 position = Vector2( 724, 302 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="Eras/Era_0/Plataforma3"]
+visible = false
 modulate = Color( 0.666667, 0.537255, 0.333333, 1 )
 scale = Vector2( 20, 64.5 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eras/Era_0/Plataforma3" groups=["Area_0_CollisionShape"]]
 shape = SubResource( 24 )
+
+[node name="Tiles1805" type="Sprite" parent="Eras/Era_0/Plataforma3"]
+position = Vector2( -1, -3 )
+scale = Vector2( 0.207692, 0.686869 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
 
 [node name="Portal" parent="Eras/Era_0" instance=ExtResource( 7 )]
 position = Vector2( 57, 819 )
@@ -220,12 +241,21 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Eras/Era_1/Plataforma1"]
+visible = false
 modulate = Color( 0.666667, 0.537255, 0.333333, 1 )
 scale = Vector2( 20, 64.5 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eras/Era_1/Plataforma1" groups=["Area_0_CollisionShape"]]
 shape = SubResource( 22 )
+
+[node name="Tiles1803" type="Sprite" parent="Eras/Era_1/Plataforma1"]
+position = Vector2( 1.43051e-06, -4.00001 )
+scale = Vector2( 0.207692, 0.686869 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
 
 [node name="Plataforma2" type="StaticBody2D" parent="Eras/Era_1"]
 position = Vector2( 1139, 442 )
@@ -234,12 +264,21 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Eras/Era_1/Plataforma2"]
+visible = false
 modulate = Color( 0.666667, 0.537255, 0.333333, 1 )
 scale = Vector2( 20, 64.5 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eras/Era_1/Plataforma2" groups=["Area_0_CollisionShape"]]
 shape = SubResource( 23 )
+
+[node name="Tiles1804" type="Sprite" parent="Eras/Era_1/Plataforma2"]
+position = Vector2( -5, -4 )
+scale = Vector2( 0.207692, 0.686869 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
 
 [node name="Plataforma3" type="StaticBody2D" parent="Eras/Era_1"]
 position = Vector2( 724, 302 )
@@ -248,12 +287,21 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Eras/Era_1/Plataforma3"]
+visible = false
 modulate = Color( 0.666667, 0.537255, 0.333333, 1 )
 scale = Vector2( 20, 64.5 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eras/Era_1/Plataforma3" groups=["Area_0_CollisionShape"]]
 shape = SubResource( 24 )
+
+[node name="Tiles1805" type="Sprite" parent="Eras/Era_1/Plataforma3"]
+position = Vector2( -1, -3 )
+scale = Vector2( 0.207692, 0.686869 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
 
 [node name="Portal3" parent="Eras/Era_1" instance=ExtResource( 7 )]
 position = Vector2( 1655, 687 )
@@ -274,22 +322,19 @@ visible = false
 
 [node name="Plataforma" type="StaticBody2D" parent="ErasCommonStatics"]
 position = Vector2( 462, 937 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ErasCommonStatics/Plataforma" groups=["Area_0_CollisionShape"]]
 position = Vector2( -238.5, 74 )
 shape = SubResource( 1 )
 
 [node name="Tiles1800" type="Sprite" parent="ErasCommonStatics/Plataforma"]
-position = Vector2( -340, 39 )
+position = Vector2( -344, 77 )
 texture = ExtResource( 17 )
 hframes = 3
 vframes = 4
 
 [node name="Tiles1801" type="Sprite" parent="ErasCommonStatics/Plataforma"]
-position = Vector2( -122, 41 )
+position = Vector2( -124, 78 )
 texture = ExtResource( 17 )
 hframes = 3
 vframes = 4
@@ -315,7 +360,21 @@ __meta__ = {
 }
 
 [node name="Tiles1802" type="Sprite" parent="ErasCommonStatics/Plataforma2"]
-position = Vector2( 52, 46 )
+position = Vector2( 44, 79 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="Tiles1803" type="Sprite" parent="ErasCommonStatics/Plataforma2"]
+position = Vector2( 252, 76 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="Tiles1804" type="Sprite" parent="ErasCommonStatics/Plataforma2"]
+position = Vector2( 459, 73 )
 texture = ExtResource( 17 )
 hframes = 3
 vframes = 4
@@ -333,6 +392,21 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ErasCommonStatics/Plataforma4" groups=["Area_0_CollisionShape"]]
 position = Vector2( 179, 64.5 )
 shape = SubResource( 20 )
+
+[node name="Tiles1802" type="Sprite" parent="ErasCommonStatics/Plataforma4"]
+position = Vector2( 53, 80 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="Tiles1803" type="Sprite" parent="ErasCommonStatics/Plataforma4"]
+position = Vector2( 284, 82 )
+scale = Vector2( 1.18462, 1 )
+texture = ExtResource( 17 )
+hframes = 3
+vframes = 4
+frame = 1
 
 [node name="SpikeFloor" parent="ErasCommonStatics" instance=ExtResource( 8 )]
 position = Vector2( 1130, 981 )
