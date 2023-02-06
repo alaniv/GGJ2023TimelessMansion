@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/twopixel.jpg" type="Texture" id=1]
 [ext_resource path="res://Prototype/Character/MainCharacter.tscn" type="PackedScene" id=2]
@@ -17,7 +17,7 @@
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/tiles 1900.png" type="Texture" id=15]
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/tiles 1800.png" type="Texture" id=16]
 [ext_resource path="res://Prototype/Levels/Resources/Aloe_spike.png" type="Texture" id=17]
-[ext_resource path="res://Prototype/Music/1900 y pico.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Prototype/Levels/Resources/1900 y pico.ogg" type="AudioStream" id=18]
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 466, 85.25 )
@@ -161,9 +161,6 @@ extents = Vector2( 34.5, 72 )
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 36.5, 226 )
-
-[sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 50, 314.5 )
 
 [node name="TestLevelPortales2" type="Node2D"]
 
@@ -731,17 +728,6 @@ position = Vector2( -1.71428, 6.42857 )
 [node name="1900" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
 autoplay = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( -74, 630 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 19, -52 )
-shape = SubResource( 21 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 2046, -23 )
-shape = SubResource( 21 )
 
 [connection signal="body_shape_entered" from="Eras/Era_0/Exit" to="Eras/Era_0/Exit" method="_on_Exit_body_shape_entered"]
 [connection signal="body_shape_entered" from="Eras/Era_1/Plataforma2/Area2D" to="Eras/Era_1/Plataforma2/Area2D" method="_on_Area2D_body_shape_entered"]

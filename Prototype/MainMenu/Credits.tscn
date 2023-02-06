@@ -1,12 +1,47 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Prototype/Levels/Resources/credits_timelessmansion.png" type="Texture" id=1]
+[ext_resource path="res://Prototype/MainMenu/splash2.png" type="Texture" id=1]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
+var credits : Dictionary = {
+	\"members\" : [
+		{
+			\"name\" : \"Alan Iriarte\",
+			\"roles\" : \"Audio, Music\"
+		}, 
+		{
+			\"name\" : \"Federico Coppola\",
+			\"roles\" : \"Game Design, Programming\"
+		}, 
+		{
+			\"name\" : \"Genaro Navarro\",
+			\"roles\" : \"2D Art\"
+		}, 
+		{
+			\"name\" : \"Ivo Alani\",
+			\"roles\" : \"Programming\"
+		}, 
+		{
+			\"name\" : \"Laura Agostina Randazzo Giménez\",
+			\"roles\" : \"2D Art\"
+		},
+		{
+			\"name\" : \"Yoel Mottillo La Pira\",
+			\"roles\" : \"2D Art\"
+		},
+	]
+}
+
 func _on_Back_pressed():
 	var _ret = get_tree().change_scene(\"res://Prototype/MainMenu/MainMenu.tscn\")
+
+func _ready():
+	for member in credits[\"members\"]:
+		print_debug(member[\"name\"])
+		$RichTextLabel.text += member[\"name\"] + '\\n'
+		$RichTextLabel.text += '\\t' + member[\"roles\"] + '\\n' + '\\n'
 "
 
 [node name="Node2D" type="Control"]
@@ -23,5 +58,11 @@ margin_top = 19.0
 margin_right = 122.0
 margin_bottom = 68.0
 text = "Back"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 1196.0
+margin_top = 266.0
+margin_right = 1543.0
+margin_bottom = 769.0
 
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
