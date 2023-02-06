@@ -1,10 +1,10 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/twopixel.jpg" type="Texture" id=1]
 [ext_resource path="res://Prototype/Character/MainCharacter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prototype/SeedManagement/vines.jpg" type="Texture" id=3]
 [ext_resource path="res://Prototype/Levels/Resources/seed.png" type="Texture" id=4]
-[ext_resource path="res://Prototype/Levels/Resources/Backgrounds/fondo y personaje.png" type="Texture" id=5]
+[ext_resource path="res://Prototype/Levels/Resources/fondo 1900.png" type="Texture" id=5]
 [ext_resource path="res://Prototype/ErasManagement/ErasManager/ErasManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prototype/ErasManagement/Portal/Portal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prototype/Levels/LevelObjects/DamagingObjects/SpikeFloor.tscn" type="PackedScene" id=8]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Prototype/Levels/Resources/Backgrounds/tiles 1800.png" type="Texture" id=17]
 [ext_resource path="res://Prototype/Levels/Resources/Aloe_spike.png" type="Texture" id=18]
 [ext_resource path="res://Prototype/Levels/Resources/1800.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Prototype/Levels/Resources/fondo 1800.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 20, 63 )
@@ -120,7 +121,6 @@ extents = Vector2( 50, 314.5 )
 [node name="Era_0" type="Node2D" parent="Eras"]
 
 [node name="Background" type="Sprite" parent="Eras/Era_0"]
-modulate = Color( 0.211765, 0.262745, 0.188235, 1 )
 texture = ExtResource( 5 )
 centered = false
 __meta__ = {
@@ -239,6 +239,13 @@ __meta__ = {
 
 [node name="Era_1" type="Node2D" parent="Eras"]
 
+[node name="Background" type="Sprite" parent="Eras/Era_1"]
+texture = ExtResource( 20 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Plataforma1" type="StaticBody2D" parent="Eras/Era_1"]
 position = Vector2( 721, 590 )
 __meta__ = {
@@ -314,6 +321,13 @@ origin_era = 1
 destination_position = Vector2( 356, 501 )
 
 [node name="Era_2" type="Node2D" parent="Eras"]
+
+[node name="Background" type="Sprite" parent="Eras/Era_2"]
+texture = ExtResource( 20 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Portal3" parent="Eras/Era_2" instance=ExtResource( 7 )]
 position = Vector2( 337, 666 )
