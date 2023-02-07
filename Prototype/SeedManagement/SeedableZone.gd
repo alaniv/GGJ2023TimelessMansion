@@ -19,4 +19,5 @@ func is_free() -> bool:
 	
 func plant_seed():
 	_is_free = false
+	$PlantSound.play()
 	emit_signal("seed_planted")

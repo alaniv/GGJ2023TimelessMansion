@@ -15,13 +15,19 @@ func _physics_process(_delta):
 		velocity.x += walk_speed
 		if is_on_floor():
 			_animation_player.play("walk")
+			if not $WalkingSound.playing:
+				$WalkingSound.play()
 	elif Input.is_action_pressed("ui_left"):
 		$Sprite.set_flip_h(true)
 		velocity.x -= walk_speed
 		if  is_on_floor():
 			_animation_player.play("walk")
+			if not $WalkingSound.playing:
+				$WalkingSound.play()
 	elif is_on_floor():
 		_animation_player.play("Idle")
+		if $WalkingSound.playing:
+			$WalkingSound.stop()
 	
 	if $ClimbAllower.is_climb_allowed():
 		double_jumped = false
@@ -33,9 +39,11 @@ func _physics_process(_delta):
 		double_jumped = !is_on_floor()
 		velocity.y = jumpforce
 		_animation_player.play("Jump")
+		$JumpSound.play()
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x, 0, 0.2)
 
 func muerte():
+	$DeathSound.play()
 	set_physics_process(false)

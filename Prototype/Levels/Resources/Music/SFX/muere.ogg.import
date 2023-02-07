@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/muere.ogg-fe7f8c19956fc551f58a4c277716940e.oggstr"
+
+[deps]
+
+source_file="res://Prototype/Levels/Resources/Music/SFX/muere.ogg"
+dest_files=[ "res://.import/muere.ogg-fe7f8c19956fc551f58a4c277716940e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

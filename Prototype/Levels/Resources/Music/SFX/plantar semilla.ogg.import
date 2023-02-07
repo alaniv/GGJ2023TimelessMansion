@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/plantar semilla.ogg-007bf244ed218adec21a2f8ce34c2cb3.oggstr"
+
+[deps]
+
+source_file="res://Prototype/Levels/Resources/Music/SFX/plantar semilla.ogg"
+dest_files=[ "res://.import/plantar semilla.ogg-007bf244ed218adec21a2f8ce34c2cb3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

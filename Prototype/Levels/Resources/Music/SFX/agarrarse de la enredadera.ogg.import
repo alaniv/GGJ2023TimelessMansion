@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/agarrarse de la enredadera.ogg-4eb4547788a70f328f9cb9fa06d900e2.oggstr"
+
+[deps]
+
+source_file="res://Prototype/Levels/Resources/Music/SFX/agarrarse de la enredadera.ogg"
+dest_files=[ "res://.import/agarrarse de la enredadera.ogg-4eb4547788a70f328f9cb9fa06d900e2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

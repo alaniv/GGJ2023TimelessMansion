@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pasos sobre madera.ogg-84da9a3fa67efd1129b51b3799a50f1c.oggstr"
+
+[deps]
+
+source_file="res://Prototype/Levels/Resources/Music/SFX/pasos sobre madera.ogg"
+dest_files=[ "res://.import/pasos sobre madera.ogg-84da9a3fa67efd1129b51b3799a50f1c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

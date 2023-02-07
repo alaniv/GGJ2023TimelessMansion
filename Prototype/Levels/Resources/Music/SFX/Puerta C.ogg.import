@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Puerta C.ogg-74c4b22517bc792e034c487b2245aa38.oggstr"
+
+[deps]
+
+source_file="res://Prototype/Levels/Resources/Music/SFX/Puerta C.ogg"
+dest_files=[ "res://.import/Puerta C.ogg-74c4b22517bc792e034c487b2245aa38.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

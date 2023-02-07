@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cruzar portal.ogg-f373de10b3c4f8d6edeecaf828033c82.oggstr"
+
+[deps]
+
+source_file="res://Prototype/Levels/Resources/Music/SFX/cruzar portal.ogg"
+dest_files=[ "res://.import/cruzar portal.ogg-f373de10b3c4f8d6edeecaf828033c82.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
